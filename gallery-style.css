@@ -1,0 +1,241 @@
+.gallery {
+    --s: 250px; 
+    --g: 20px; 
+    display: grid;  
+    margin: calc(var(--s) + var(--g));
+    justify-content: center;
+    transition: height 0.3s ease-in-out, margin-bottom 0.3s ease-in-out; 
+  }
+  
+  .gallery > img {
+    grid-area: 1/1;
+    width: var(--s);
+    aspect-ratio: 1.15;
+    object-fit: cover;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%,75% 100%,25% 100%,0 50%);
+    transform: translate(var(--_x,0),var(--_y,0)) scale(var(--_t,1));
+    cursor: pointer;
+    transition: .2s linear;
+    filter: grayscale(0);
+  }
+  
+  .gallery > img:hover {
+    filter: grayscale(80%);
+    z-index: 1;
+    --_t: 1.2;
+  }
+  
+  .gallery > img:nth-child(1) {--_y: calc(-100% - var(--g))}
+  .gallery > img:nth-child(7) {--_y: calc( 100% + var(--g))}
+  .gallery > img:nth-child(3),
+  .gallery > img:nth-child(5) {--_x: calc(-75% - .87*var(--g))}
+  .gallery > img:nth-child(4),
+  .gallery > img:nth-child(6) {--_x: calc( 75% + .87*var(--g))}
+  .gallery > img:nth-child(3),
+  .gallery > img:nth-child(4) {--_y: calc(-50% - .5*var(--g))}
+  .gallery > img:nth-child(5), 
+  .gallery > img:nth-child(6) {--_y: calc( 50% + .5*var(--g))}
+  
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    background: #aabbfb;
+  }
+  
+
+  .art-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 20px; 
+  }
+  
+  .art-filter select {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    margin-right: 10px; 
+  }
+  
+  .art-filter select:hover {
+    cursor: pointer;
+  }
+  
+  .art-filter select:active,
+  .art-filter select option:hover {
+    background-color: #3ca0e7;
+    color: white;
+    
+    font-size: 12px;
+  }.art-filter {
+    display: flex;
+    justify-content: center;
+    align-items: top; 
+  }
+  
+  .art-filter select {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+  }
+  
+  .art-filter select:hover {
+    cursor: pointer;
+  }
+  
+  .art-filter select:active,
+  .art-filter select option:hover {
+    background-color: #3ca0e7;
+    color: white;
+  }
+ 
+  @media only screen and (max-width: 768px) {
+    .gallery {
+      --s: 150px; 
+      --g: 10px; 
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .gallery {
+      --s: 120px;
+      --g: 8px; 
+    }
+  }
+  
+  h1 {
+    position: relative;
+    text-align: center;
+    color: #353535;
+    font-size: 50px;
+    font-family: "Cormorant Garamond", serif;
+  }
+  
+  p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 18px;
+    color: #676767;
+  }
+  
+  .frame {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+  }
+  
+  button {
+    margin: 20px;
+  }
+  
+  .custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+                7px 7px 20px 0px rgba(0,0,0,.1),
+                4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+  
+  .btn-style {
+    background: rgb(0,172,238);
+    background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+  }
+  
+  .btn-style span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .btn-style:before,
+  .btn-style:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: rgba(2,126,251,1);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-style:before {
+    height: 0%;
+    width: 2px;
+  }
+  
+  .btn-style:after {
+    width: 0%;
+    height: 2px;
+  }
+  
+  .btn-style:hover {
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  .btn-style:hover:before {
+    height: 100%;
+  }
+  
+  .btn-style:hover:after {
+    width: 100%;
+  }
+  
+  .btn-style span:hover {
+    color: rgba(2,126,251,1);
+  }
+  
+  .btn-style span:before,
+  .btn-3 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: rgba(2,126,251,1);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-style span:before {
+    width: 2px;
+    height: 0%;
+  }
+  
+  .btn-style span:after {
+    width: 0%;
+    height: 2px;
+  }
+  
+  .btn-style span:hover:before {
+    height: 100%;
+  }
+  
+  .btn-style span:hover:after {
+    width: 100%;
+  }
+  
